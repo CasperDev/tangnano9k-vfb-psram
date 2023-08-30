@@ -93,7 +93,7 @@ wire serial_clk;              // HDMI Serial clock 126 MHz (640x480@60Hz)
 wire pll_lock;                // HDMI clock stable
 wire hdmi_rst_n;              // HDMI reset (active low) 
 
-TMDS_PLL u_tmds_pll
+TDMS_PLL u_tdms_pll
 (                               // 640x480    // 1280x720
     .clkin      (I_clk      ),  // input clk - board clock 27 MHz
     .clkout     (serial_clk ),  // 126 MHz    // 371,250 MHz
@@ -251,14 +251,14 @@ testpattern testpattern_inst
 
 
     // generated screen params                            // 720x480   // 640x480   // 800x600   // 1024x768  // 1280x720    
-    .I_h_total   (12'd858            ), //hor total time  // 12'd858   // 12'd800   // 16'd1056  // 16'd1344  // 16'd1650  
-    .I_h_sync    (12'd62             ), //hor sync time   // 12'd62    // 16'd96    // 16'd128   // 16'd136   // 16'd40    
-    .I_h_bporch  (12'd56             ), //hor back porch  // 12'd56    // 16'd48    // 16'd88    // 16'd160   // 16'd220   
-    .I_h_res     (12'd720            ), //hor resolution  // 12'd720   // 16'd640   // 16'd800   // 16'd1024  // 16'd1280  
-    .I_v_total   (12'd525            ), //ver total time  // 12'd525   // 12'd525   // 16'd628   // 16'd806   // 16'd750    
-    .I_v_sync    (12'd6              ), //ver sync time   // 12'd6     // 16'd2     // 16'd4     // 16'd6     // 16'd5     
-    .I_v_bporch  (12'd30             ), //ver back porch  // 12'd30    // 16'd33    // 16'd23    // 16'd29    // 16'd20    
-    .I_v_res     (12'd480            ), //ver resolution  // 12'd480   // 16'd480   // 16'd600   // 16'd768   // 16'd720    
+    .I_h_total   (13'd1650            ), //hor total time  // 12'd858   // 12'd800   // 16'd1056  // 16'd1344  // 16'd1650  
+    .I_h_sync    (12'd40             ), //hor sync time   // 12'd62    // 16'd96    // 16'd128   // 16'd136   // 16'd40    
+    .I_h_bporch  (12'd220             ), //hor back porch  // 12'd56    // 16'd48    // 16'd88    // 16'd160   // 16'd220   
+    .I_h_res     (13'd1280            ), //hor resolution  // 12'd720   // 16'd640   // 16'd800   // 16'd1024  // 16'd1280  
+    .I_v_total   (12'd750            ), //ver total time  // 12'd525   // 12'd525   // 16'd628   // 16'd806   // 16'd750    
+    .I_v_sync    (12'd5              ), //ver sync time   // 12'd6     // 16'd2     // 16'd4     // 16'd6     // 16'd5     
+    .I_v_bporch  (12'd20             ), //ver back porch  // 12'd30    // 16'd33    // 16'd23    // 16'd29    // 16'd20    
+    .I_v_res     (12'd720            ), //ver resolution  // 12'd480   // 16'd480   // 16'd600   // 16'd768   // 16'd720    
     .I_hs_pol    (1'b1               ), //HS polarity , 0:negetive ploarity，1：positive polarity
     .I_vs_pol    (1'b1               ), //VS polarity , 0:negetive ploarity，1：positive polarity
     
@@ -378,16 +378,16 @@ syn_gen syn_gen_inst
     
     .I_pxl_clk   (pix_clk         ),// 27 MHz     // 25,2MHz    //40MHz      //65MHz      //74.25MHz    //148.5
     .I_rst_n     (hdmi_rst_n      ),// 720x480    // 640x480    //800x600    //1024x768   //1280x720    //1920x1080    
-    .I_h_total   (16'd858         ),// 16'd858    // 16'd800    // 16'd1056  // 16'd1344  // 16'd1650   // 16'd2200  
-    .I_h_sync    (16'd62          ),// 16'd62     // 16'd96     // 16'd128   // 16'd136   // 16'd40     // 16'd44   
-    .I_h_bporch  (16'd56          ),// 16'd56     // 16'd48     // 16'd88    // 16'd160   // 16'd220    // 16'd148   
-    .I_h_res     (16'd720         ),// 16'd720    // 16'd640    // 16'd800   // 16'd1024  // 16'd1280   // 16'd1920  
-    .I_v_total   (16'd525         ),// 16'd525    // 16'd525    // 16'd628   // 16'd806   // 16'd750    // 16'd1125   
-    .I_v_sync    (16'd6           ),// 16'd6      // 16'd2      // 16'd4     // 16'd6     // 16'd5      // 16'd5      
-    .I_v_bporch  (16'd30          ),// 16'd30     // 16'd33     // 16'd23    // 16'd29    // 16'd20     // 16'd36      
-    .I_v_res     (16'd480         ),// 16'd480    // 16'd480    // 16'd600   // 16'd768   // 16'd720    // 16'd1080   
-    .I_rd_hres   (16'd720         ),
-    .I_rd_vres   (16'd480         ),
+    .I_h_total   (16'd1650         ),// 16'd858    // 16'd800    // 16'd1056  // 16'd1344  // 16'd1650   // 16'd2200  
+    .I_h_sync    (16'd40          ),// 16'd62     // 16'd96     // 16'd128   // 16'd136   // 16'd40     // 16'd44   
+    .I_h_bporch  (16'd220          ),// 16'd56     // 16'd48     // 16'd88    // 16'd160   // 16'd220    // 16'd148   
+    .I_h_res     (16'd1280         ),// 16'd720    // 16'd640    // 16'd800   // 16'd1024  // 16'd1280   // 16'd1920  
+    .I_v_total   (16'd750         ),// 16'd525    // 16'd525    // 16'd628   // 16'd806   // 16'd750    // 16'd1125   
+    .I_v_sync    (16'd5           ),// 16'd6      // 16'd2      // 16'd4     // 16'd6     // 16'd5      // 16'd5      
+    .I_v_bporch  (16'd20          ),// 16'd30     // 16'd33     // 16'd23    // 16'd29    // 16'd20     // 16'd36      
+    .I_v_res     (16'd720         ),// 16'd480    // 16'd480    // 16'd600   // 16'd768   // 16'd720    // 16'd1080   
+    .I_rd_hres   (16'd1280         ),
+    .I_rd_vres   (16'd720         ),
     .I_hs_pol    (1'b1            ),//HS polarity , 0:负极性，1：正极性
     .I_vs_pol    (1'b1            ),//VS polarity , 0:负极性，1：正极性
     .O_rden      (syn_off0_re     ),

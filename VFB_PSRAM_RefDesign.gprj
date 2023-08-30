@@ -7,7 +7,7 @@
     <FileList>
         <File path="src/dvi_tx/dvi_tx.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_clkdiv/gowin_clkdiv_35.v" type="file.verilog" enable="1"/>
-        <File path="src/gowin_rpll/TMDS_PLL.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/TDMS_PLL.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/psram_memory_interface_hs/psram_memory_interface_hs.v" type="file.verilog" enable="1"/>
         <File path="src/syn_gen.v" type="file.verilog" enable="1"/>

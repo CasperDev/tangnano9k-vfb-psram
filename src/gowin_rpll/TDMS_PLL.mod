@@ -6,7 +6,7 @@
 
 -mod_name TDMS_PLL
 -file_name TDMS_PLL
--path E:/TangNano-9K-example-main/VFB_PSRAM_RefDesign/src/gowin_rpll/
+-path E:/TangNano/tangnano9k-vfb-psram/src/gowin_rpll/
 -type PLL
 -rPll true
 -file_type vlg
