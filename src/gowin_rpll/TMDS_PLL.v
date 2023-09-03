@@ -6,7 +6,7 @@
 //Device: GW1NR-9C
 //Created Time: Mon Aug 28 18:34:28 2023
 
-module TDMS_PLL (clkout, clkin, lock);
+module TMDS_PLL (clkout, clkin, lock);
 
 output lock;
 output clkout;

@@ -93,7 +93,7 @@ wire serial_clk;              // HDMI Serial clock 126 MHz (640x480@60Hz)
 wire pll_lock;                // HDMI clock stable
 wire hdmi_rst_n;              // HDMI reset (active low) 
 
-TDMS_PLL u_tdms_pll
+TMDS_PLL u_tmds_pll
 (                               // 640x480    // 1280x720
     .clkin      (I_clk      ),  // input clk - board clock 27 MHz
     .clkout     (serial_clk ),  // 126 MHz    // 371,250 MHz

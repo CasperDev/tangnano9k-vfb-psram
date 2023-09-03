@@ -5,7 +5,7 @@
    "Type" : "verilog"
   },
   {
-   "Path" : "E:/TangNano/tangnano9k-vfb-psram/src/gowin_clkdiv/gowin_clkdiv_35.v",
+   "Path" : "E:/TangNano/tangnano9k-vfb-psram/src/gowin_rpll/TMDS_PLL.v",
    "Type" : "verilog"
   },
   {
@@ -30,10 +30,6 @@
   },
   {
    "Path" : "E:/TangNano/tangnano9k-vfb-psram/src/video_top.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "E:/TangNano/tangnano9k-vfb-psram/src/gowin_rpll/TDMS_PLL.v",
    "Type" : "verilog"
   }
  ],
