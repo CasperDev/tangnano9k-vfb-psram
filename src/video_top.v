@@ -34,7 +34,7 @@
 //`define	RD_VIDEO_WIDTH_32
 //`define	DEF_RD_VIDEO_WIDTH 32
 
-//`define	USE_THREE_FRAME_BUFFER
+`define	USE_THREE_FRAME_BUFFER
 
 `define	DEF_ADDR_WIDTH 21 
 `define	DEF_SRAM_DATA_WIDTH 64
@@ -212,7 +212,7 @@ wire [ 7:0] tp0_data_b/*synthesis syn_keep=1*/;
 // changes pattern 
 reg         vs_r;     // edge detection register
 reg  [9:0]  cnt_vs;   // frame counter
-reg         pattern_done;
+//reg         pattern_done;
 
 always@(posedge vdg_pix_clk)
 begin
@@ -227,15 +227,15 @@ begin
         cnt_vs<=cnt_vs+1'b1;
 
 end 
-
+/*
 always@(posedge vdg_pix_clk or negedge hdmi_rst_n)
 begin
     if(!hdmi_rst_n) 
         pattern_done <= 1'b0;
-    else if (cnt_vs[8] == 1'b1)
+    else if (cnt_vs[5] == 1'b1)
         pattern_done <= 1'b1;
 end
-
+*/
 //===========================================================================
 //testpattern
 testpattern testpattern_inst
@@ -244,17 +244,17 @@ testpattern testpattern_inst
     .I_rst_n     (hdmi_rst_n         ),//low active 
     
     // mode - display pattern selection
-    .I_mode      ({1'b0,cnt_vs[9:8]} ), // 3bit pattern select
+    .I_mode      ({1'b0,cnt_vs[7:6]} ), // 3bit pattern select
     .I_single_r  (8'd0               ), // RGB red for single color
     .I_single_g  (8'd255             ), // RGB green for single color
     .I_single_b  (8'd0               ), // RGB blue for single color
 
 
     // generated screen params                            // 720x480   // 640x480   // 800x600   // 1024x768  // 1280x720    
-    .I_h_total   (13'd1650            ), //hor total time  // 12'd858   // 12'd800   // 16'd1056  // 16'd1344  // 16'd1650  
+    .I_h_total   (12'd1650            ), //hor total time  // 12'd858   // 12'd800   // 16'd1056  // 16'd1344  // 16'd1650  
     .I_h_sync    (12'd40             ), //hor sync time   // 12'd62    // 16'd96    // 16'd128   // 16'd136   // 16'd40    
     .I_h_bporch  (12'd220             ), //hor back porch  // 12'd56    // 16'd48    // 16'd88    // 16'd160   // 16'd220   
-    .I_h_res     (13'd1280            ), //hor resolution  // 12'd720   // 16'd640   // 16'd800   // 16'd1024  // 16'd1280  
+    .I_h_res     (12'd1280            ), //hor resolution  // 12'd720   // 16'd640   // 16'd800   // 16'd1024  // 16'd1280  
     .I_v_total   (12'd750            ), //ver total time  // 12'd525   // 12'd525   // 16'd628   // 16'd806   // 16'd750    
     .I_v_sync    (12'd5              ), //ver sync time   // 12'd6     // 16'd2     // 16'd4     // 16'd6     // 16'd5     
     .I_v_bporch  (12'd20             ), //ver back porch  // 12'd30    // 16'd33    // 16'd23    // 16'd29    // 16'd20    
@@ -303,7 +303,7 @@ wire [WR_VIDEO_WIDTH-1:0] ch0_vfb_data_in;
 
 //=====================================================
 //PSRAM Controller
-VFB_PSRAM_Top VFB_PSRAM_Top_inst
+vfb_psram_Top VFB_PSRAM_Top_inst
 ( 
     .I_rst_n            (init_calib       ),  // keep reset until PSRAM calibrated
     .I_dma_clk          (dma_clk          ),  // PSRAM_clock

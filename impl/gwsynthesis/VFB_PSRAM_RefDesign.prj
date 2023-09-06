@@ -15,7 +15,6 @@
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
-        <Option type="dsp_balance" value="0"/>
         <Option type="looplimit" value="2000"/>
         <Option type="output_file" value="E:\TangNano\tangnano9k-vfb-psram\impl\gwsynthesis\VFB_PSRAM_RefDesign.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
